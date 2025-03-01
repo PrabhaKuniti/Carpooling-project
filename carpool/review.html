@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave a Review - Community Carpooling</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img src="https://uploads.mesym.com/wp-content/uploads/mesym/2014/09/tripda-icon-1.png" alt="Logo" width="50" height="50">
+                Community Carpooling
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+    
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a class="nav-link" href="post_ride.html"><i class="fas fa-car"></i> Post a Ride</a>
+                    <a class="nav-link" href="book_ride.html"><i class="fas fa-ticket-alt"></i> Book a Ride</a>
+                    <a class="nav-link active" href="review.html"><i class="fas fa-star"></i> Leave a Review  <span class="sr-only">(current)</span></a>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+
+    <main class="container">
+        <h2 class="my-4">Leave a Review</h2>
+        <form id="reviewForm" action="review.php" method="POST">
+            <div class="form-group">
+                <label for="ride_id">Ride ID:</label>
+                <input type="text" id="ride_id" name="ride_id" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" class="form-control" required>
+                    <option value="">🌟 Select a rating</option>
+                    <option value="1">😞 1 - Poor</option>
+                    <option value="2">😐 2 - Fair</option>
+                    <option value="3">🙂 3 - Good</option>
+                    <option value="4">😀 4 - Very Good</option>
+                    <option value="5">🤩 5 - Excellent</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="review">Your Review:</label>
+                <textarea id="review" name="review" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Review 🚀</button>
+        </form>
+    </main>
+    
+    <footer class="bg-dark text-white text-center py-4">
+        <h3 class="mb-3">✨ Creative Minds of ✨</h3>
+        <p class="mb-2"><i class="fas fa-user-graduate"></i> Mangireddygari Reshma: <span class="text-warning">22102A040916</span> 🎓</p>
+        <p class="mb-2"><i class="fas fa-user-graduate"></i> Kuniti Prabhavati: <span class="text-warning">22102A040887</span> 🎓</p>
+        <p class="mb-2"><i class="fas fa-user-graduate"></i> Majjiga Sai Kavya: <span class="text-warning">22102A040907</span> 🎓</p>
+        <p class="mb-2"><i class="fas fa-user-graduate"></i> Kukkati Nikhitha: <span class="text-warning">22102A040884</span> 🎓</p>
+        <p class="mb-2"><i class="fas fa-user-graduate"></i> Mallineni Nandini: <span class="text-warning">22102A040910</span> 🎓</p>
+        <div class="mt-4">
+            <a href="https://github.com" class="text-white  mr-3 ml-3" aria-label="GitHub"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://linkedin.com" class="text-white  mr-3 ml-3" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="https://twitter.com" class="text-white mr-3 ml-3" aria-label="Twitter"><i class="fab fa-twitter fa-2x"></i></a>
+        </div>
+        <p class="mt-3 text-muted">Made with <i class="fas fa-heart text-danger animated heartBeat infinite"></i> by the Team</p>
+    </footer>
+    
+    <script>
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            var rideId = document.getElementById('ride_id').value;
+            if (!/^[A-Za-z0-9]+$/.test(rideId)) {
+                alert('Please enter a valid Ride ID.');
+                event.preventDefault();
+            }
+        });
+    
+        // Add animation to the submit button
+        document.querySelector('.btn-warning').addEventListener('mouseover', function() {
+            this.classList.add('animated', 'pulse');
+        });
+    
+        document.querySelector('.btn-warning').addEventListener('mouseout', function() {
+            this.classList.remove('animated', 'pulse');
+        });
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+
+    </body>
+</html>
